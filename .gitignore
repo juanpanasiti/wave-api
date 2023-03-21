@@ -1,0 +1,16 @@
+# venv
+.python-version
+venv
+
+# Python files
+**/__pycache__
+**/.pytest_cache
+
+# Logs
+**/*.log
+
+# secrets
+.env
+
+# VSCode files
+**/.vscode
