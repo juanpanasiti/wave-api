@@ -8,13 +8,16 @@ from app.database.product_model import ProductModel
 
 app = FastAPI()
 
+# CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['*'],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # Routes
 app.include_router(api_router)
-
-@app.get('/')
-async def test():
-    return ''
-
 
 @app.on_event('startup')
 def on_startup():
@@ -24,10 +27,3 @@ def on_startup():
         print(ex.args)
 
 
-# CORS
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=['*'],
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
